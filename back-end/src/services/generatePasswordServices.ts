@@ -1,6 +1,6 @@
-import "dotenv/config";
-import generatePasswordRepositories from "../repositories/generatePasswordRepositories";
+// import "dotenv/config";
 import generateRandomString from "../utils/generateRandomString";
+import generatePasswordRepositories from "repositories/generatePasswordRepositories";
 
 async function createPassword(length: number): Promise<string> {
   if (length > 25 || length <= 0)
@@ -8,10 +8,12 @@ async function createPassword(length: number): Promise<string> {
       "You cannot create a password longer than 25 characters or less than 0"
     );
 
-  let newRandomString = generateRandomString.execute(length);
+  const newRandomString = generateRandomString.execute(length);
 
-  await generatePasswordRepositories.createPasswordRepository(newRandomString);
-  return newRandomString;
+  const createdPassword = await generatePasswordRepositories.createPasswordRepository(newRandomString)
+  console.log(createdPassword)
+  return newRandomString
+  // return createdPassword.password;
 }
 
 export default {
