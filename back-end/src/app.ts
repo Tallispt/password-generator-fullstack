@@ -7,5 +7,4 @@ app.use(json());
 app.use(cors());
 app.use(router);
 
-console.log('app')
 export default app;
