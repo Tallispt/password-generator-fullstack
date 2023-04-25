@@ -1,7 +1,7 @@
 import prisma from "config/database";
 
 async function createPasswordRepository(password: string) {
-  return await prisma.password.findMany()
+  return await prisma.password.create({data: {password}})
 }
 
 export default {

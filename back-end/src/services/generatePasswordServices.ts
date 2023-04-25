@@ -11,9 +11,7 @@ async function createPassword(length: number): Promise<string> {
   const newRandomString = generateRandomString.execute(length);
 
   const createdPassword = await generatePasswordRepositories.createPasswordRepository(newRandomString)
-  console.log(createdPassword)
   return newRandomString
-  // return createdPassword.password;
 }
 
 export default {
